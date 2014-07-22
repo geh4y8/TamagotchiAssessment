@@ -26,7 +26,6 @@ $(document).ready(function(){
 		var newTamo = Object.create(Tamagotchi);
 		newTamo.initialize(tamoName);
 		var counter=0;
-		var score =0;
 		$(document).keydown(function(e){ //keydown function
 		var keyCode = e.keyCode || e.which;
 			if(e.keyCode == 37) {
@@ -40,8 +39,6 @@ $(document).ready(function(){
 				counter+=1
 			};
 		});
-		
-
 		var interval = window.setInterval(function(){
 			newTamo.timePasses();
 			$(".sleepStatus").text(newTamo.sleepLevel);
@@ -50,7 +47,8 @@ $(document).ready(function(){
 			if(newTamo.foodLevel <= 0 || newTamo.sleepLevel <=0 || newTamo.activityLevel <=0){
 			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://i.somethingawful.com/u/salmonseason/tama/tamdie.gif'>")
 			$('#scores').addClass('game_over').text("GAME OVER");
-			$('#scores').append(counter)
+			$(document).off('keydown');
+			$('#final-score').text("<p>"+counter+'</p>')
 			}else if(newTamo.foodLevel < 15){
 			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tameat.gif'>")
 			}else if(newTamo.sleepLevel < 15){
