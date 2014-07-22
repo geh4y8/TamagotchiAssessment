@@ -2,26 +2,90 @@
 <html>
 <head>
 	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/animate.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
 	<script src="js/jquery-1.11.1.js"></script>
 	<script src="js/scripts.js"></script>
 </head>
 <body>
-	<h1>Tamagotchi</h1>
-	<div id="container">
+	<div class="container-fluid">
+		<h1 id="title">My Little Awesome Virtual Pet</h1>
+		<div id="marquee">
+		<p class="status marquee">Activity: <span class="activityStatus"></span>, Food: <span class="foodStatus"></span>, Sleep: <span class="sleepStatus"></span></p>
+		</div>
 		<form>
-			<input id="name" type="text" placeholder="name your tamagotchi">
+			<input id="name" type="text" placeholder="Give your pet a name!">
 			<button id="submitbtn" type="submit">Come to Life!</button>
 		</form>
-		<div id="purchases">
-			<table id="table">
-				<tr>
-					<th>Description</th>
-					<th>Amount</th>
-				</tr>
-			</table>
+		<div id="egg-container">
+			<img id="egg" class="animated shake" src="http://www.clipartbest.com/cliparts/aie/KRn/aieKRn6bT.png" alt="egg">
 		</div>
+
+		<div id="wrapper">
+			<div class='row' id="scores">
+				<div id="score-title">
+					<p>Activity</p><br>
+					<p>Sleep</p><br>
+					<p>Food</p>
+				</div>
+				<div id="score-numbers">
+					<p><span class="activityStatus animated flash"></span></p><br>
+					<p><span class="sleepStatus animated flash"></span></p><br>
+					<p><span class="foodStatus animated flash"></span></p>
+				</div>
+			</div>
+			<div id="gif-wrapper">			
+			</div>
+		  <ul id="top">
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		  </ul>
+		  
+		  <ul id="right">
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		  </ul>
+		  
+		  <ul id="bottom">
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		  </ul>
+		  
+		  <ul id="left">
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		  </ul>	  
+		</div>		
 	</div>
 </body>
 </html>
-
-
