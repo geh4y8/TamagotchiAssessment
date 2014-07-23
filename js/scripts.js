@@ -1,6 +1,5 @@
 var Tamagotchi = {
-	initialize: function(inputName) {
-		this.name = inputName;
+	initialize: function() {
 		this.foodLevel = 30;
 		this.sleepLevel = 15;
 		this.activityLevel = 30;
@@ -20,11 +19,9 @@ var Tamagotchi = {
 }
 
 $(document).ready(function(){
-	$("form").submit(function(event){
-		event.preventDefault();
-		var tamoName = $("input#name").val();
+	$("#egg").click(function(){
 		var newTamo = Object.create(Tamagotchi);
-		newTamo.initialize(tamoName);
+		newTamo.initialize();
 		var counter=0;
 		$(document).keydown(function(e){ //keydown function
 			var keyCode = e.keyCode || e.which;
@@ -60,7 +57,6 @@ $(document).ready(function(){
 				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tamsnak.gif'>")
 			}
 		}, 1000);
-		$('form').remove();
 		$('#egg-container').remove();
 		$('#wrapper').show();
 		$('#gif-wrapper').append("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tamsnak.gif'>")
