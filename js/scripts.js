@@ -27,15 +27,15 @@ $(document).ready(function(){
 		newTamo.initialize(tamoName);
 		var counter=0;
 		$(document).keydown(function(e){ //keydown function
-		var keyCode = e.keyCode || e.which;
+			var keyCode = e.keyCode || e.which;
 			if(e.keyCode == 37) {
-				newTamo.foodLevel +=10
+				newTamo.foodLevel +=3
 				counter+=1
 			}else if (e.keyCode == 38) {
-				newTamo.activityLevel +=10
+				newTamo.activityLevel +=2
 				counter+=1
 			}else if (e.keyCode == 39) {
-				newTamo.sleepLevel +=10
+				newTamo.sleepLevel +=3
 				counter+=1
 			};
 		});
@@ -44,24 +44,28 @@ $(document).ready(function(){
 			$(".sleepStatus").text(newTamo.sleepLevel);
 			$(".foodStatus").text(newTamo.foodLevel);
 			$(".activityStatus").text(newTamo.activityLevel);
+			$('#final-score').text("Score:  "+counter)
 			if(newTamo.foodLevel <= 0 || newTamo.sleepLevel <=0 || newTamo.activityLevel <=0){
-			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://i.somethingawful.com/u/salmonseason/tama/tamdie.gif'>")
-			$('#scores').addClass('game_over').text("GAME OVER");
-			$(document).off('keydown');
-			$('#final-score').text("<p>"+counter+'</p>')
+				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://i.somethingawful.com/u/salmonseason/tama/tamdie.gif'>")
+				$('#scores').addClass('game_over').text("GAME OVER");
+				$(document).off('keydown');
+				$('#retry').delay(3000).fadeIn('slow')
 			}else if(newTamo.foodLevel < 15){
-			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tameat.gif'>")
+				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tameat.gif'>")
 			}else if(newTamo.sleepLevel < 15){
-			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://28.media.tumblr.com/tumblr_ljm5n7VNwt1qazdhko1_500.gif'>")	
+				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://28.media.tumblr.com/tumblr_ljm5n7VNwt1qazdhko1_500.gif'>")	
 			}else if(newTamo.activityLevel <15){
-			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://img2.wikia.nocookie.net/__cb20140119203109/tamagotchi/images/f/f2/6g1tam.gif'>")	
+				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://img2.wikia.nocookie.net/__cb20140119203109/tamagotchi/images/f/f2/6g1tam.gif'>")	
 			}else{
-			$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tamsnak.gif'>")
+				$('#baby-pet').replaceWith("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tamsnak.gif'>")
 			}
 		}, 1000);
 		$('form').remove();
 		$('#egg-container').remove();
 		$('#wrapper').show();
 		$('#gif-wrapper').append("<img id='baby-pet' src='http://individual.utoronto.ca/elaine/tamsnak.gif'>")
+		$('#retry').click(function(){
+			location.reload();
+		});
 	});	
 });
