@@ -16,6 +16,7 @@ var Tamagotchi = {
 			return false;
 		}
 	}
+
 }
 
 $(document).ready(function(){
@@ -26,14 +27,17 @@ $(document).ready(function(){
 		$(document).keydown(function(e){ //keydown function
 			var keyCode = e.keyCode || e.which;
 			if(e.keyCode == 37) {
-				newTamo.foodLevel +=3
-				counter+=1
+				if(newTamo.foodLevel <=30){
+				newTamo.foodLevel +=7
+				counter+=1}
 			}else if (e.keyCode == 38) {
-				newTamo.activityLevel +=2
-				counter+=1
+				if(newTamo.activityLevel <=30){
+				newTamo.activityLevel +=8
+				counter+=1}
 			}else if (e.keyCode == 39) {
-				newTamo.sleepLevel +=3
-				counter+=1
+				if(newTamo.sleepLevel <=30){
+				newTamo.sleepLevel +=7
+				counter+=1}
 			};
 		});
 		var interval = window.setInterval(function(){
